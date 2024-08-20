@@ -10,7 +10,7 @@ GRANT SELECT, INSERT ON school.students TO 'username'@'localhost';
 
 -- Grant additional permissions
 
-GRANT UPDATE ON school.students FROM 'username'@'localhost';
+GRANT UPDATE ON school.students TO 'username'@'localhost';
 
 -- Revoke Permissions
 
