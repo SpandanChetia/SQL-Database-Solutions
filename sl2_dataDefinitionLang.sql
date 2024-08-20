@@ -61,3 +61,17 @@ CREATE TABLE students (
     FOREIGN KEY (mentor_id) REFERENCES professors(p_id),
     CONSTRAINT chk_email CHECK (email LIKE '%@%.%')
 );
+
+-- Add a column
+ALTER TABLE students 
+ADD COLUMN address VARCHAR(100) NOT NULL;
+
+-- Delete a tuple
+DELETE FROM students
+WHERE student_id = 2
+
+-- Drop a table
+DROP TABLE students
+
+-- Truncate a table
+TRUNCATE TABLE students;
