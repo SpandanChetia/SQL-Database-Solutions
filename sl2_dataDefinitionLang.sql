@@ -64,14 +64,18 @@ CREATE TABLE students (
 
 -- Add a column
 ALTER TABLE students 
-ADD COLUMN address VARCHAR(100) NOT NULL;
+ADD address VARCHAR(100) NOT NULL;
+
+-- Drop a column
+ALTER TABLE students
+DROP COLUMN address;
 
 -- Delete a tuple
 DELETE FROM students
-WHERE student_id = 2
+WHERE student_id = 2;
 
 -- Drop a table
-DROP TABLE students
+DROP TABLE students;
 
 -- Truncate a table
 TRUNCATE TABLE students;
