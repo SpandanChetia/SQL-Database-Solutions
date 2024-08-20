@@ -56,7 +56,7 @@ CREATE TABLE students (
     phone_number VARCHAR(15),
     enrollment_date DATETIME DEFAULT GETDATE() NOT NULL,  -- Use DATETIME instead of TIMESTAMP
     major VARCHAR(50),
-    cgpa DECIMAL(4, 2) CHECK (cgpa BETWEEN 0.0 AND 10.0),
+    cgpa DECIMAL(3, 2) CHECK (cgpa BETWEEN 0.0 AND 10.0),
     mentor_id INT,
     FOREIGN KEY (mentor_id) REFERENCES professors(p_id),
     CONSTRAINT chk_email CHECK (email LIKE '%@%.%')
