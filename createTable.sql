@@ -1,14 +1,9 @@
--- this creates a new database called school if it doesnt exist already
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'school')
+BEGIN
+    CREATE DATABASE school;
+END
 
-CREATE DATABASE IF NOT EXISTS school;
-
--- to delete the database - DROP DATABASE IF EXISTS school;
-
-CREATE TABLE IF NOT EXISTS students (
-    id INT PRIMARY KEY,
-    name VARCHAR(50)   -- maximum 50 characters that name can store
-)
-
-
-
-
+IF EXISTS (SELECT * FROM sys.databases WHERE name = 'school')
+BEGIN
+    DROP DATABASE school;
+END
