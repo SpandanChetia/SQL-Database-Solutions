@@ -70,6 +70,8 @@ select distinct author_fname, author_lname, title from books order by author_lna
 select distinct author_fname, author_lname, title from books order by author_lname desc, author_fname desc limit 1 offset 1;
 */
 
+-- data_manipulation.sql
+
 -- Table Creation
 CREATE TABLE books 
 (
@@ -102,44 +104,6 @@ VALUES
 ('Oblivion: Stories', 'David', 'Foster Wallace', 2004, 172, 329),
 ('Consider the Lobster', 'David', 'Foster Wallace', 2005, 92, 343);
 
--- Selecting concatenated author names
--- Output: Full names of authors
-SELECT author_fname + ' ' + author_lname AS authors 
-FROM books;
-
--- Selecting the first character of author_lname
--- Output: First character of each author's last name
-SELECT SUBSTRING(author_lname, 1, 1) 
-FROM books;
-
--- Selecting title with a short form
--- Output: Title truncated to 10 characters followed by '...'
-SELECT LEFT(title, 10) + '...' AS short_title 
-FROM books;
-
--- Replace and Reverse operations
--- Output: 'Spandan and Aryan'
-SELECT REPLACE('Spandan Aryan', ' ', ' and ') AS replaced_string;
-
--- Output: 'nadnapS'
-SELECT REVERSE('Spandan') AS reversed_string;
-
--- Other Functions
--- Output: 'Hello There'
-SELECT STUFF('Hello Bobby', 6, 0, 'There') AS modified_string;
-
--- Output: 'omg'
-SELECT LEFT('omghahalol!', 3) AS left_string;
-
--- Output: 'lol!'
-SELECT RIGHT('omghahalol!', 4) AS right_string;
-
--- Output: 'hahaha'
-SELECT REPLICATE('ha', 4) AS repeated_string;
-
--- Output: 'pickle'
-SELECT LTRIM(RTRIM('  pickle  ')) AS trimmed_string;
-
 -- Inserting additional records
 INSERT INTO books
     (title, author_fname, author_lname, released_year, stock_quantity, pages)
@@ -150,24 +114,6 @@ VALUES
     ('HP', 'Spandan', 'Chetia', 2018, 1000, 233);
 
 -- Selecting all records
--- Output: All records in the books table
 SELECT * 
 FROM books;
 
--- Selecting distinct full names
--- Output: Distinct full names of authors
-SELECT DISTINCT author_fname + ' ' + author_lname AS Full_Names 
-FROM books;
-
--- Selecting distinct author names and titles with ordering
--- Output: Distinct author names and titles, ordered by last and first names in descending order
-SELECT DISTINCT author_fname, author_lname, title 
-FROM books 
-ORDER BY author_lname DESC, author_fname DESC;
-
--- Pagination for distinct author names and titles
--- Output: Author names and titles, skipping the first row and fetching the next row based on the ordering
-SELECT author_fname, author_lname, title 
-FROM books 
-ORDER BY author_lname DESC, author_fname DESC
-OFFSET 1 ROWS FETCH NEXT 1 ROW ONLY;
